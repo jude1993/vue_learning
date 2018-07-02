@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+  <!-- 双向数据绑定 -->
+  <div id="vue-1">
+    <h1>双向数据绑定/input/select/textarea</h1>
+    <label>姓名：</label>
+    <input ref="name" type="text" v-model="name" />
+    <span>{{name}}</span>
+    <label>年龄：</label>
+    <input ref="age" type="text" v-model="age" />
+    <span>{{age}}</span>
+  </div>
+
+  <!-- 计算属性 -->
+  <div id="vue-2">
+    <h1>Computed 计算属性</h1>
+    <button v-on:click="a++">Add to A</button>
+    <button v-on:click="b++">Add to B</button>
+    <p>
+      A-{{a}}
+    </p>
+    <p>
+      B-{{b}}
+    </p>
+    <p>
+      Age + A = {{addToA()}}
+    </p>
+    <p>
+      Age + B = {{addToB()}}
+    </p>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

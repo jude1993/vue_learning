@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+  <!-- 获取vue对象中的值 -->
+  <!--vue-app是根容器-->
+  <div id="vue-app">
+    <p>Name: {{name}}</p>
+    <p>Job: {{job}}</p>
+    <p>{{greet(name)}}</p>
+    <!-- v-bind: 给对应的属性绑定vue中的值 -->
+    <a v-bind:href="website">百度</a>
+    <input type="text" v-bind:value="name">
+    <!-- 让vue中的内容变为html标签 -->
+    <p v-html="websiteTag"></p>
+  </div>
+
+
+  <!-- 给标签绑定事件 -->
+  <div id="vue-events">
+    <p>Events</p>
+    <!-- @事件 给标签绑定事件 -->
+    <!-- v-on:事件 给标签绑定事件 -->
+    <!-- .once 事件只触发一次 -->
+    <button @click.once="add(1)">加一岁</button>
+    <button v-on:click="subtract(1)">减一岁</button>
+    <button @dblclick="add(10)">加十岁</button>
+    <button v-on:dblclick="subtract(10)">减十岁</button>
+    <p>My age is {{age}}</p>
+  </div>
+
+  <div id="vue-canvas" v-on:mousemove="updateXY">
+    {{x}} ,{{y}} -
+    <!-- <span v-on:mousemove="stopMoving"> Stop Moving</span> -->
+    <!-- .stop取消冒泡事件 -->
+    <span v-on:mousemove.stop=""> Stop Moving</span>
+  </div>
+  <a v-on:click="alert()" href="http://www.baidu.com">baidu</a>
+
+<!-- 双向数据绑定 -->
+  <div id="vue-app2">
+    <h1>双向数据绑定/input/select/textarea</h1>
+    <label>姓名：</label>
+    <input type="text" v-on:keyup.enter="logName"/>
+    <span>{{name}}</span>
+    <label>年龄：</label>
+    <input type="text" v-on:keyup.alt.enter="logAge"/>
+    <span>{{age}}</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

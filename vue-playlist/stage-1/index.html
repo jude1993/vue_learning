@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<!-- 响应式 -->
+
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+
+  <div id="app-2">
+    <span v-bind:title="message">
+    鼠标悬停几秒查看此处的绑定信息
+  </span>
+  </div>
+
+  <div id="app-3">
+    <p v-if="seen">
+      现在你看到我了
+    </p>
+  </div>
+
+  <div id="app-4">
+    <span v-on:click="addOne()">
+      add
+    </span>
+    <ol>
+      <li v-for="todo in todos">
+        {{todo.text}}
+      </li>
+    </ol>
+  </div>
+
+  <div id="app-5">
+    <p>
+      {{message}}
+    </p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+  </div>
+
+  <div id="app-6">
+    <br/>
+    密码：<input v-model="message" v-on:click="moveOn"/>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
